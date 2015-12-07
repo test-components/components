@@ -4,7 +4,7 @@ module.exports = (function() {
     return [{
         protocol: "github",
         github: {
-            author: "fis-components"
+            author: "test-components"
         },
         repos: 'https://github.com/ecomfe/zrender.git',
         version: '2.0.6',

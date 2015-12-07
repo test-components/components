@@ -57,11 +57,12 @@ function createRepos(repos, token, from) {
 
     github.repos.createFromOrg({
         name: repos,
-        org: 'fis-components',
+        org: 'test-components',
         description: 'Fork from ' + from
     }, function(err, data) {
         if (err) {
             //throw err;
+            console.log(err)
             process.exit(1);
         }
         process.exit(0);
@@ -162,7 +163,7 @@ function getFilesFromLastMessage(cb) {
 
 function lastChangFiles(cb) {
     var lastSuccessMessageId = 'HEAD^';
-    var remote = 'https://raw.githubusercontent.com/fis-components/components/history/commitId.log';
+    var remote = 'https://raw.githubusercontent.com/test-components/components/history/commitId.log';
     
     console.log('Fetching ' + remote);
 
@@ -314,7 +315,7 @@ if (ARGV[2] == 'sync') {
         lastChangFiles(sync);
     }
 } else if (ARGV[2] == 'create-repos') {
-    console.log('=sync.js create repos: https://github.com/fis-components/%s', ARGV[3]);
+    console.log('=sync.js create repos: https://github.com/test-components/%s', ARGV[3]);
     createRepos(ARGV[3], ARGV[4], ARGV[5]);
 } else if (ARGV[2] == 'create-component.json') {
     var name = ARGV[3].trim();

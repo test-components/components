@@ -22,7 +22,7 @@ git_update_repos () {
     echo "https://${GH_TOKEN}:@github.com" > .git/credential
 
     git add -A -f
-    git commit -m "based on https://github.com/fis-components/components/blob/master/modules/${repos}.js" -a
+    git commit -m "based on https://github.com/test-components/components/blob/master/modules/${repos}.js" -a
 
     git push origin master
     git tag -a "$version" -m "create tag $version"
@@ -62,21 +62,21 @@ sync () {
         echo "=LOCAL rm -rf _${new}"
     fi
 
-    git_clone "https://github.com/fis-components/${new}" "_${new}"
+    git_clone "https://github.com/test-components/${new}" "_${new}"
 
     if [ "$?" != "0" ]; then
         # new origin
-        node $ROOT/sync.js create-repos "${new}" "${GH_TOKEN}" "${repos}"
+        node $ROOT/sync.js create-repos "${new}" " 39316cdc33edb24e3ecba963ba93b4e4f19c23ec" "${repos}"
         if [ "$?" != "0" ]; then
             exit 1
         fi
-        git_clone "https://github.com/fis-components/${new}" "_${new}"
+        git_clone "https://github.com/test-components/${new}" "_${new}"
         if [ "$?" != "0" ]; then
             exit 1
         fi
     else
         cd "_${new}"
-        git pull --all
+        git pull
         found=$(git tag | grep $version)
 
         if [ "$found" != "" ]; then

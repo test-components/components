@@ -4,11 +4,11 @@ FIS 组件生态
 ![](./install.png)
 ![](./sample.png)
 
-[Demo](https://github.com/fex-team/fis-components-demo)
+[Demo](https://github.com/fex-team/test-components-demo)
 
 ## 背景
 
-目前互联网上已经存在大量成型的第三方组件，我们为什么不直接在fis中使用呢？虽然各类插件规范可能不一致，FIS-Components帮你统一规范，简单化使用方式！
+目前互联网上已经存在大量成型的第三方组件，我们为什么不直接在fis中使用呢？虽然各类插件规范可能不一致，test-components帮你统一规范，简单化使用方式！
 
 ## 像开发 node.js 一样开发网页应用
 
@@ -18,8 +18,8 @@ fis install 类似与 npm install，把现有的组件安装到当前项目。
 $ fis install jquery bootstrap
 
 Installed
-├── github:fis-components/jquery@1.9.1
-└── github:fis-components/bootstrap@v3.3.1
+├── github:test-components/jquery@1.9.1
+└── github:test-components/bootstrap@v3.3.1
 
 ```
 
@@ -42,7 +42,7 @@ $('.btn').click(function() {
 
 个人觉得有以下几个原因，导致 bower 不适合 fis。
 
-1. bower 包没有严格的存放规范，每个包的引用方式都可能不一样。冗余的文件多，影响编译性能。于是，我们制定了更严格的[规范](https://github.com/fis-components/spec), 同时我们把不必要的文件去掉了。
+1. bower 包没有严格的存放规范，每个包的引用方式都可能不一样。冗余的文件多，影响编译性能。于是，我们制定了更严格的[规范](https://github.com/test-components/spec), 同时我们把不必要的文件去掉了。
 2. 大部分组件采用 amd/umd 规范，在 fis 的 mod.js 中不能直接使用。于是，我们的组件平台集成了转换工具，自动将 amd/umd 转成 commonJS。
 3. 有的组件我们希望是私有的，部门级别的共享，bower做不到。于是，我们的组件安装可以指定多种平台，可以直接安装来自 github、gitlab 或者 lights 上的组件。
 4. fis 开发中还有一些特有的东西，比如可公用的 smarty、velocity 模板，放在共有平台没意义。
@@ -59,7 +59,7 @@ AMD 和 UMD 扩展自 CommonJs 规范，主要为了适用于浏览器。 而在
 
 通过简单的配置，结合 travis CI, 代码一提交就会自动把现有 AMD 或者 UMD 的组件转换成 CommonJs。
 
-目前此机构下面的组件都来源于[这些配置文件](https://github.com/fis-components/components/tree/master/modules), 欢迎大家提 pull request 丰富我们的组件平台。
+目前此机构下面的组件都来源于[这些配置文件](https://github.com/test-components/components/tree/master/modules), 欢迎大家提 pull request 丰富我们的组件平台。
 
 
 ## 支持强大的 [semverion](https://github.com/npm/node-semver)

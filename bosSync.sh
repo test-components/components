@@ -9,7 +9,7 @@ echo "Sleep for 5 seconds"
 sleep 5s
 
 mkdir -p $ROOT/temp
-remote="https://codeload.github.com/fis-components/${repos}/tar.gz/${version}"
+remote="https://codeload.github.com/test-components/${repos}/tar.gz/${version}"
 filename="temp/${repos}_${version}.tar.gz"
 echo "Downloading ${remote}"
 echo "curl -o ${ROOT}/${filename} $remote"
@@ -18,7 +18,7 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 
-info="https://raw.githubusercontent.com/fis-components/${repos}/${version}/component.json"
+info="https://raw.githubusercontent.com/test-components/${repos}/${version}/component.json"
 infofile="temp/${repos}_${version}.json"
 echo "Downloading ${info}"
 echo "curl -o ${ROOT}/${infofile} $info"
@@ -32,7 +32,7 @@ cat ${ROOT}/${infofile}
 ak="${BOS_AK}"
 sk="${BOS_SK}"
 
-versions=$(git ls-remote --tags --refs --heads https://github.com/fis-components/${repos}.git  | awk -F/ '{print $3}')
+versions=$(git ls-remote --tags --refs --heads https://github.com/test-components/${repos}.git  | awk -F/ '{print $3}')
 versionsfile="temp/${repos}_versions.txt"
 echo $versions > ${ROOT}/${versionsfile}
 cat ${ROOT}/${versionsfile}

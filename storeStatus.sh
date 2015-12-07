@@ -9,7 +9,7 @@ echo "Last Commit Id is $currentCommitId"
 echo "$currentCommitId" > ./commitId.log
 
 git init
-git remote add origin https://github.com/fis-components/components.git
+git remote add origin https://github.com/test-components/components.git
 
 #AU
 git config --global user.email "${GIT_EMAIL}"

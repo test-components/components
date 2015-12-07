@@ -28,15 +28,15 @@ FIS 组件安装
 
 因为 fis install  支持多种平台，所以严格来说一个 component 的完整路径应该是这样的。
 
-    github:fis-components/jquery@1.9.1
-    gitlap:fis-components/jquery@1.9.1
+    github:test-components/jquery@1.9.1
+    gitlap:test-components/jquery@1.9.1
     lights:lightjs.duapp.com/jquery@1.9.1
 
 为了简化路径，目前有这么几种规则。
 
 如果配置的 `protocol` （平台标示） 为 `github` 时，那么路径就可以简化为
 
-    fis-components/jquery@1.9.1
+    test-components/jquery@1.9.1
 
 同时，如果 github 下面配置的默认的用户为 `fis-compoennts` 时，路径可以进一步简化。
 
@@ -47,13 +47,13 @@ FIS 组件安装
     jquery
 
 
-这样 `fis install jquery` 安装的组件，就完全等价于 `fis install github:fis-components/jquery@latest`。
+这样 `fis install jquery` 安装的组件，就完全等价于 `fis install github:test-components/jquery@latest`。
 
 `gitlab` 和 `lights` 也有同样的规则。唯一不同的是 `lights` 没有作者信息，取而代之的是 `domain` lights 域名。默认 lights 的 domain 为 `lights.duapp.com`，如果用户使用自己搭建的 lights 平台，则可以通过指定 domain 来区分。
 
 ## component.json 配置说明
 
-更多配置说明请查看[规范说明](https://github.com/fis-components/spec)中字段的说明,这里详细说明重要部分。
+更多配置说明请查看[规范说明](https://github.com/test-components/spec)中字段的说明,这里详细说明重要部分。
 
 compnent.json 分两种：[私有的]和[发布的]。[发布的] 是指在那些已经发布了的组件里面的 `component.json`，用来说明所属组件的信息。而私有的一般就是fis项目中根目录下面的 `component.json` 用来说明，当前 fis 项目要依赖哪些组件，本身这个项目不是组件，也基本不会发布成组件。
 
@@ -66,7 +66,7 @@ compnent.json 分两种：[私有的]和[发布的]。[发布的] 是指在那�
     {
       "protocol": "gitlab",
       "gitlab": {
-        "author": "fis-components"
+        "author": "test-components"
       },
       "github": {
         "author": "my-team"
@@ -77,7 +77,7 @@ compnent.json 分两种：[私有的]和[发布的]。[发布的] 是指在那�
 
 | 简洁写法  | 实际路径 |
 | ------------- | ------------- |
-| jquery  | gitlab:fis-components/jquery |
+| jquery  | gitlab:test-components/jquery |
 | my-team:jquery  | gitlab:my-team/jquery |
 | github:jquery | github:my-team/jquery |
 | github:my-team/jquery | github:my-team/jquery |
